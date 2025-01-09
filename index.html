@@ -104,49 +104,50 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-6">
-          <a href="#protocol" class="nav-link">
-            <i data-lucide="shield" class="w-5 h-5"></i>
-            Protocol
+          <a href="#protocol" class="nav-link inline-flex items-center justify-center">
+            <i data-lucide="shield" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">Protocol</span>
           </a>
-          <a href="#how-it-works" class="nav-link">
-            <i data-lucide="settings" class="w-5 h-5"></i>
-            How it Works
+          <a href="#how-it-works" class="nav-link inline-flex items-center justify-center">
+            <i data-lucide="settings" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">How it Works</span>
           </a>
-          <button id="connectWalletBtn" class="btn-primary">
-            <i data-lucide="wallet" class="w-5 h-5"></i>
-            Connect Wallet
+          <button id="connectWalletBtn" class="btn-primary inline-flex items-center justify-center">
+            <i data-lucide="wallet" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">Connect Wallet</span>
           </button>
-          <button class="btn-secondary">
-            <i data-lucide="plus-circle" class="w-5 h-5"></i>
-            Create Agent
+          <button class="btn-secondary inline-flex items-center justify-center">
+            <i data-lucide="plus-circle" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">Create Agent</span>
           </button>
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden p-2 hover:bg-purple-800 rounded-lg">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
+        <div class="flex items-center gap-4 md:hidden">
+          <button id="connectWalletBtnMobile" class="btn-primary !px-3 !py-2">
+            <i data-lucide="wallet" class="w-5 h-5"></i>
+          </button>
+          <button id="menuBtn" class="p-2 hover:bg-purple-800 rounded-lg">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <nav id="mobileMenu" class="mobile-menu absolute w-full bg-gray-900 md:hidden">
-      <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
-        <a href="#protocol" class="nav-link">
-          <i data-lucide="shield" class="w-5 h-5"></i>
-          Protocol
+    <nav id="mobileMenu" class="mobile-menu absolute w-full bg-gray-900/95 backdrop-blur-md md:hidden">
+      <div class="container mx-auto px-4 py-6 flex flex-col gap-4">
+        <a href="#protocol" class="nav-link inline-flex items-center">
+          <i data-lucide="shield" class="w-5 h-5 flex-shrink-0"></i>
+          <span class="ml-2">Protocol</span>
         </a>
-        <a href="#how-it-works" class="nav-link">
-          <i data-lucide="settings" class="w-5 h-5"></i>
-          How it Works
+        <a href="#how-it-works" class="nav-link inline-flex items-center">
+          <i data-lucide="settings" class="w-5 h-5 flex-shrink-0"></i>
+          <span class="ml-2">How it Works</span>
         </a>
-        <button id="connectWalletBtnMobile" class="btn-primary">
-          <i data-lucide="wallet" class="w-5 h-5"></i>
-          Connect Wallet
-        </button>
-        <button class="btn-secondary">
-          <i data-lucide="plus-circle" class="w-5 h-5"></i>
-          Create Agent
+        <button class="btn-secondary inline-flex items-center justify-center">
+          <i data-lucide="plus-circle" class="w-5 h-5 flex-shrink-0"></i>
+          <span class="ml-2">Create Agent</span>
         </button>
       </div>
     </nav>
@@ -164,20 +165,20 @@
           Own your MemeBot NFT and join the future of crypto culture.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <button id="mintBtn" class="btn-primary">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-            Mint Your MemeBot
+          <button id="mintBtn" class="btn-primary inline-flex items-center justify-center">
+            <i data-lucide="sparkles" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">Mint Your MemeBot</span>
           </button>
-          <a href="#features" class="btn-secondary">
-            <i data-lucide="info" class="w-5 h-5"></i>
-            Learn More
+          <a href="#features" class="btn-secondary inline-flex items-center justify-center">
+            <i data-lucide="info" class="w-5 h-5 flex-shrink-0"></i>
+            <span class="ml-2">Learn More</span>
           </a>
         </div>
       </div>
       <div class="w-full lg:w-1/2">
         <img
-          src="/api/placeholder/600/400"
-          alt="MemeBot Preview"
+          src="/pepe.png"
+          alt="Pepe MemeBot"
           class="rounded-2xl shadow-2xl float"
         />
       </div>
@@ -293,9 +294,9 @@
         Don't miss out on the future of meme coins. Mint your MemeBot today and start
         building your crypto empire.
       </p>
-      <button id="getStartedBtn" class="btn-primary mx-auto">
-        <i data-lucide="rocket" class="w-5 h-5"></i>
-        Get Started Now
+      <button id="getStartedBtn" class="btn-primary mx-auto inline-flex items-center justify-center">
+        <i data-lucide="rocket" class="w-5 h-5 flex-shrink-0"></i>
+        <span class="ml-2">Get Started Now</span>
       </button>
     </div>
   </section>
