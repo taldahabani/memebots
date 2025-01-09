@@ -196,13 +196,118 @@
           </a>
         </div>
       </div>
-      <div class="w-full lg:w-1/2">
-        <img
-          src="/pepe.png"
-          alt="MemeBot Preview"
-          class="rounded-2xl shadow-2xl float"
-        />
+<div class="w-full lg:w-1/2">
+  <div class="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl float">
+    <!-- Image and Title Container -->
+    <div class="slider-container relative w-full h-full">
+      <!-- Slides will be dynamically inserted here -->
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/75 transition-colors">
+      <i data-lucide="chevron-left" class="w-6 h-6 text-white"></i>
+    </button>
+    <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/75 transition-colors">
+      <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+    </button>
+
+    <!-- Dots Navigation -->
+    <div class="absolute bottom-20 left-0 right-0 flex justify-center gap-2" id="dots-container">
+      <!-- Dots will be dynamically inserted here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = [
+    {
+      image: '/pepe.png',
+      title: 'Pepe Legendary MEMEBOT'
+    },
+    {
+      image: '/shiba.png',
+      title: 'Shiba Legendary MEMEBOT'
+    },
+    {
+      image: '/doge.png',
+      title: 'Doge Legendary MEMEBOT'
+    }
+  ];
+
+  let currentIndex = 0;
+  const sliderContainer = document.querySelector('.slider-container');
+  const dotsContainer = document.getElementById('dots-container');
+
+  // Create slides
+  slides.forEach((slide, index) => {
+    const slideElement = document.createElement('div');
+    slideElement.className = `absolute w-full h-full transition-opacity duration-500 ease-in-out ${
+      index === 0 ? 'opacity-100' : 'opacity-0'
+    }`;
+    slideElement.setAttribute('data-index', index);
+    
+    slideElement.innerHTML = `
+      <img
+        src="${slide.image}"
+        alt="${slide.title}"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+        <h3 class="text-2xl font-bold text-center" style="
+          background: linear-gradient(45deg, #f6d365 0%, #ff6b6b 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.3)
+        ">
+          ${slide.title}
+        </h3>
       </div>
+    `;
+    
+    sliderContainer.appendChild(slideElement);
+
+    // Create dots
+    const dot = document.createElement('button');
+    dot.className = `w-3 h-3 rounded-full transition-colors ${
+      index === 0 ? 'bg-white' : 'bg-white/50'
+    }`;
+    dot.onclick = () => goToSlide(index);
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateSlides() {
+    // Update slides
+    document.querySelectorAll('[data-index]').forEach((slide, index) => {
+      slide.style.opacity = index === currentIndex ? '1' : '0';
+    });
+    
+    // Update dots
+    dotsContainer.querySelectorAll('button').forEach((dot, index) => {
+      dot.className = `w-3 h-3 rounded-full transition-colors ${
+        index === currentIndex ? 'bg-white' : 'bg-white/50'
+      }`;
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlides();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlides();
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlides();
+  }
+
+  // Auto-advance slides
+  setInterval(nextSlide, 5000);
+</script>
     </div>
   </section>
 
